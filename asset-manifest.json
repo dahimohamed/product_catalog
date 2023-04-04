@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/phone-catalog/static/css/main.31d6cfe0.css",
+    "main.js": "/phone-catalog/static/js/main.c40a413d.js",
+    "index.html": "/phone-catalog/index.html",
+    "main.c40a413d.js.map": "/phone-catalog/static/js/main.c40a413d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.c40a413d.js"
+  ]
+}
