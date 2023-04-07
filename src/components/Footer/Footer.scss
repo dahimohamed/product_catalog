@@ -10,17 +10,22 @@
   box-shadow: 0px -1px 0px #E2E6E9;  
 
   &__container {
-    margin-top: 34px;
-    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 34px 32px;
+    padding-left: 16px;
+    margin: 0 auto;
 
     @media (min-width: 640px) {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       margin: 0;
 
       height: 96px;
-      gap: 50px;
+     
     }
     @media (min-width: 1200px) {
       justify-content: space-around;
@@ -83,18 +88,23 @@
     gap: 16px;
     justify-items: center;
     align-items: center;
+    margin: 0 auto;
+    
+     @media (min-width: 640px) {
+      margin: 0;
+    }
   }
 
   &__icon-title {
     display: inline-block;
     margin: 0;
 
-    font-weight: 600;
+    font-weight: 700;
     font-size: 12px;
     line-height: 15px;
     text-align: right;
 
-    color: #89939A;
+    color: $secondary-color;
   }
 
   &__icon {
@@ -108,30 +118,4 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-
-  @media (max-width: 640px) {
-    &__back-to-top {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 220px;
-      padding-bottom: 32px;
-    }
-
-    &__icon-title {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      margin: 0;
-    }
-
-    &__icon {
-      display: inline-block;
-      height: 32px;
-      width: 32px;
-      margin: 0;
-      margin-left: 16px; 
-    }
-  } 
 }

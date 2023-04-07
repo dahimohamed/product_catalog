@@ -1,35 +1,77 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import './Header.scss';
 
 export const Header = () => {
   return (
-    <header className="header" id="header">
+    <header className="header" id="top">
       <a className="logo" href="/"></a>
 
       <nav className="nav">
         <ul className="nav__list">
-          <li className="nav__item nav__item--is-active">
-            <a href="#home" className="nav__link ">
+          <li className="nav__item ">
+            <NavLink
+              to="/home"
+              className={({ isActive}) => (
+                cn(
+                  'nav__link',
+                  {
+                    'nav__link--is-active': isActive,
+                  }
+                )
+              )}
+            >
               home
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav__item">
-            <a href="/" className="nav__link">
+            <NavLink
+              to="/phones"
+              className={({ isActive}) => (
+                cn(
+                  'nav__link',
+                  {
+                    'nav__link--is-active': isActive,
+                  }
+                )
+              )}
+            >
               phones
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav__item">
-            <a href="/" className="nav__link">
+            <NavLink
+              to="/tablets"
+              className={({ isActive}) => (
+                cn(
+                  'nav__link',
+                  {
+                    'nav__link--is-active': isActive,
+                  }
+                )
+              )}
+            >
               tablets
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav__item">
-            <a href="/" className="nav__link">
+            <NavLink
+              to="/accessories"
+              className={({ isActive}) => (
+                cn(
+                  'nav__link',
+                  {
+                    'nav__link--is-active': isActive,
+                  }
+                )
+              )}
+            >
               accessories
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

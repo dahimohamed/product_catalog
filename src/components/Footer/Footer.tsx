@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss';
+import './Footer.scss'; 
 
 export const Footer = () => {
   return (
@@ -28,7 +28,12 @@ export const Footer = () => {
 
         <div className="footer__back-to-top">
           <p className="footer__icon-title">Back to top</p>
-          <a href="#header" className="footer__icon"></a>
+          <a
+            onClick={() => {
+              document.getElementById('top')?.scrollIntoView();
+            }}
+            className="footer__icon"
+          ></a>
         </div>
       </div>
     </footer>
