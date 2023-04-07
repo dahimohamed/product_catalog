@@ -1,0 +1,85 @@
+@import '../../styles/utils/vars.scss';
+@import '../../styles/blocks/logo.scss';
+@import '../../styles/blocks/nav.scss';
+
+.header {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  height: 48px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 1px 0px #E2E6E9;  
+
+  @media (min-width: 640px) {
+    gap: 32px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 64px;
+    gap: 48px;
+  }
+
+
+  &__icons {
+    position: absolute;
+    right: 0;
+  }
+}
+
+
+.icon {
+  
+  display: none;
+  box-sizing: border-box;
+
+  width: 48px;
+  height: 48px;
+
+  background-color: #FFFFFF;
+  box-shadow: -1px 0px 0px $element-color;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &--menu {
+    display: inline-block;
+    box-sizing: border-box;
+
+    width: 48px;
+    height: 48px;
+
+    background-color: #FFFFFF;
+    box-shadow: -1px 0px 0px $element-color;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../../images/header/menu-icon.svg');
+
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+  
+
+  &--heart-like {
+    background-image: url(../../images/header/icon--heart-like.svg);
+  }
+
+  &--shopping-bag {
+    background-image: url(../../images/header/icon-Shopping-bag.svg);
+  }
+
+  @media (min-width: 640px) {
+    display: inline-block;
+  }
+
+  @media (min-width: 1200px) {
+    width: 64px;
+    height: 64px;
+  }
+}
