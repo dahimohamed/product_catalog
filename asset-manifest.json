@@ -1,12 +1,21 @@
 {
   "files": {
-    "main.css": "/phone-catalog/static/css/main.31d6cfe0.css",
-    "main.js": "/phone-catalog/static/js/main.c40a413d.js",
-    "index.html": "/phone-catalog/index.html",
-    "main.c40a413d.js.map": "/phone-catalog/static/js/main.c40a413d.js.map"
+    "main.css": "/product_catalog/static/css/main.5840e0db.css",
+    "main.js": "/product_catalog/static/js/main.db4d2a48.js",
+    "static/media/Logo.svg": "/product_catalog/static/media/Logo.8798c2d4cea5c04ad214.svg",
+    "static/media/Mont-Regular.otf": "/product_catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
+    "static/media/Mont-SemiBold.otf": "/product_catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
+    "static/media/Mont-Bold.otf": "/product_catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/icon-Shopping-bag.svg": "/product_catalog/static/media/icon-Shopping-bag.f9632dca8fdaed9bb696.svg",
+    "static/media/icon--heart-like.svg": "/product_catalog/static/media/icon--heart-like.73331cc5187a77c7d93e.svg",
+    "index.html": "/product_catalog/index.html",
+    "static/media/menu-icon.svg": "/product_catalog/static/media/menu-icon.7d886604721a2522b7ee.svg",
+    "static/media/arrow-icon.svg": "/product_catalog/static/media/arrow-icon.eadd4b1b07b5ba9bb8fd.svg",
+    "main.5840e0db.css.map": "/product_catalog/static/css/main.5840e0db.css.map",
+    "main.db4d2a48.js.map": "/product_catalog/static/js/main.db4d2a48.js.map"
   },
   "entrypoints": [
-    "static/css/main.31d6cfe0.css",
-    "static/js/main.c40a413d.js"
+    "static/css/main.5840e0db.css",
+    "static/js/main.db4d2a48.js"
   ]
 }
