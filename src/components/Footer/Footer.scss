@@ -1,13 +1,10 @@
 @import '../../styles/utils/vars.scss';
+@import '../../styles/utils/mixins';
 @import '../../styles/blocks/logo.scss';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
   background: #FFF;
-  box-shadow: 0px -1px 0px #E2E6E9;  
+  box-shadow: 0px -1px 0px $element-color;
 
   &__container {
     display: flex;
@@ -17,7 +14,7 @@
     padding-left: 16px;
     margin: 0 auto;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -25,9 +22,9 @@
       margin: 0;
 
       height: 96px;
-     
     }
-    @media (min-width: 1200px) {
+
+    @include onDesktop {
       justify-content: space-around;
     }
   }
@@ -35,9 +32,9 @@
   &__nav {
     margin-top: 32px;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       margin: 0;
-    }  
+    } 
   }
 
   &__list {
@@ -74,7 +71,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       margin: 0;
     }
 
@@ -90,7 +87,7 @@
     align-items: center;
     margin: 0 auto;
     
-     @media (min-width: 640px) {
+    @include onTablet {
       margin: 0;
     }
   }
@@ -113,6 +110,7 @@
     width: 32px;
     margin: 0;
     border: 1px solid #B4BDC4;
+    cursor: pointer;
 
     background-image: url(../../images/footer/arrow-icon.svg);
     background-position: center;

@@ -1,0 +1,133 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.home {
+  
+  padding-top: 48px;
+
+  @include onTablet {
+    margin: 0;
+    padding: 32px 24px 64px;
+    padding-top: 80px;
+  }
+
+  @include onDesktop {
+    padding: 56px 32px 80px;
+    padding-top: 112px;
+  }
+  &__title {
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+    color: $primary-color;
+    margin: 24px 16px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 56px;
+      margin: 0;
+      margin-bottom: 32px;
+    }
+
+  }
+
+  &__banner {
+    display: flex;
+    margin-bottom: 18px;
+
+    &-image {
+      margin: 0 auto;
+      padding-top: 100%;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+     
+      
+
+      @include onTablet {
+        padding-top: 34%;
+        margin: 0 19px;
+      }
+
+      @include onDesktop {
+        margin: 0 16px;
+      }
+
+      &--first {
+        background-image: url(../../images/home/home_banner-320.png);
+        
+        @include onTablet {
+          background-image: url(../../images/home/Banner-iphone14-1200.png);
+        }
+      }
+
+      &--second {
+        background-image: url(../../images/home/banner-tablets.png);
+      }
+
+      
+      &--third {
+        background-image: url(../../images/home/banner-phones.png);
+      }
+    }
+
+    &-icon {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+  
+        width: 32px;
+        cursor: pointer;
+        border: 1px solid #B4BDC4;
+      }
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--left {
+      background-image: url(../../images/home/arrow-icon-left.svg);
+    }
+
+    &--right {
+      background-image: url(../../images/home/arrow-icon-right.svg);
+    }
+
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  &__dot {
+    width: 14px;
+    height: 4px;
+    background-color: #E2E6E9;
+    margin-bottom: 66px;
+    cursor: pointer;
+
+    @include onTablet {
+      margin-bottom: 74px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+
+    &--active {
+      background-color: $primary-color;
+    }
+  }
+}

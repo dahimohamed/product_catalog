@@ -1,21 +1,24 @@
 @import '../../styles/utils/vars.scss';
 @import '../../styles/blocks/logo.scss';
-@import '../../styles/blocks/nav.scss';
+@import '../../styles/utils/mixins';
+@import '../../styles/blocks/Nav.scss';
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 
-  display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 0px;
 
   height: 48px;
 
   background: #FFFFFF;
-  box-shadow: 0px 1px 0px #E2E6E9;  
+  box-shadow: 0px 1px 0px $element-color;
 
   @media (min-width: 640px) {
+    display: flex;
     gap: 32px;
   }
 
@@ -26,59 +29,96 @@
 
 
   &__icons {
-    position: absolute;
-    right: 0;
+    display: none;
+    &--is-visible {
+      position: fixed;
+      bottom: 0;
+ 
+      display: flex;
+      padding-top: 100%;
+      width: 100%;
+  }
+    
+    @include onTablet {
+      position: absolute;
+      right: 0;
+       top: 0;
+       display: flex;
+       padding: 0;
+       width: auto;
+    }
   }
 }
 
-
 .icon {
-  
-  display: none;
   box-sizing: border-box;
+  width: 50%;
+  height: 80px;
 
-  width: 48px;
-  height: 48px;
-
-  background-color: #FFFFFF;
-  box-shadow: -1px 0px 0px $element-color;
+  background-color: #FFF;
+  box-shadow: -1px -1px 0px $element-color;
 
   background-repeat: no-repeat;
   background-position: center;
 
   &--menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+
     display: inline-block;
     box-sizing: border-box;
 
     width: 48px;
     height: 48px;
 
-    background-color: #FFFFFF;
-    box-shadow: -1px 0px 0px $element-color;
-
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../../images/header/menu-icon.svg');
+
+    cursor: pointer;
+    background-color: #FFF;
+    box-shadow: -1px 0px 0px $element-color;
+
+    &-cross {
+      background-image: url('../../images/header/cross-icon.svg');
+    }
 
     @media (min-width: 640px) {
       display: none;
     }
   }
   
-
   &--heart-like {
     background-image: url(../../images/header/icon--heart-like.svg);
+
+    &--is-active {
+      border-bottom: 2px solid $primary-color;
+
+      @include onTablet {
+        border-bottom: 3px solid $primary-color;
+      }
+    }
   }
 
   &--shopping-bag {
     background-image: url(../../images/header/icon-Shopping-bag.svg);
+
+    &--is-active {
+      border-bottom: 2px solid $primary-color;
+
+      @include onTablet {
+        border-bottom: 3px solid $primary-color;
+      }
+    }
   }
 
-  @media (min-width: 640px) {
-    display: inline-block;
+  @include onTablet {
+    width: 48px;
+    height: 48px;
   }
 
-  @media (min-width: 1200px) {
+  @include onDesktop {
     width: 64px;
     height: 64px;
   }

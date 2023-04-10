@@ -1,6 +1,24 @@
 import React from 'react';
 import './Footer.scss'; 
 
+const footerLinks = [
+  {
+    id: 1,
+    url: 'https://github.com/dahimohamed/product_catalog',
+    name: 'Github'
+  },
+  {
+    id: 2,
+    url: '/',
+    name: 'Contacts'
+  },
+  {
+    id: 3,
+    url: '/',
+    name: 'Rights'
+  },
+];
+
 export const Footer = () => {
   return (
     <footer className="footer">
@@ -8,21 +26,17 @@ export const Footer = () => {
         <a className="logo" href="/"></a>
         <nav className="footer__nav">
           <ul className="footer__list">
-            <li className="footer__item ">
-              <a href="#home" className="footer__link ">
-                github
-              </a>
-            </li>
-            <li className="footer__item">
-              <a href="/" className="footer__link">
-                contacts
-              </a>
-            </li>
-            <li className="footer__item">
-              <a href="/" className="footer__link">
-                rights
-              </a>
-            </li>
+            {footerLinks.map(link => {
+              const { id, url, name } = link;
+
+              return (
+                <li key={id} className="footer__item ">
+                  <a href={url} className="footer__link ">
+                    {name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

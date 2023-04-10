@@ -1,7 +1,9 @@
 .logo {
     display: block;
+    align-items: center;
     width: 80px;
     height: 26px;
+    margin-top: 12px;
     padding-left: 16px;
     background-image: url(../../images/header/Logo.svg);
     background-repeat: no-repeat;
@@ -9,6 +11,7 @@
     background-size: contain;
 
     @media (min-width: 640px) {
+      margin: 0;
       padding-left: 24px;
     }
   }
