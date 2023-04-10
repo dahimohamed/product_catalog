@@ -1,21 +1,28 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.ba74c99f.css",
-    "main.js": "/product_catalog/static/js/main.2814cf9f.js",
+    "main.css": "/product_catalog/static/css/main.c2124217.css",
+    "main.js": "/product_catalog/static/js/main.28c9a94c.js",
+    "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.8798c2d4cea5c04ad214.svg",
+    "static/media/banner-tablets.png": "/product_catalog/static/media/banner-tablets.a962057c1043a08f7737.png",
     "static/media/Mont-Regular.otf": "/product_catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/product_catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/Banner-iphone14-1200.png": "/product_catalog/static/media/Banner-iphone14-1200.d050523a38b733655d0b.png",
+    "static/media/home_banner-320.png": "/product_catalog/static/media/home_banner-320.5ab4e0f94787219dc791.png",
     "static/media/icon-Shopping-bag.svg": "/product_catalog/static/media/icon-Shopping-bag.f9632dca8fdaed9bb696.svg",
     "static/media/icon--heart-like.svg": "/product_catalog/static/media/icon--heart-like.73331cc5187a77c7d93e.svg",
     "index.html": "/product_catalog/index.html",
+    "static/media/cross-icon.svg": "/product_catalog/static/media/cross-icon.f9e13926ee9fdb95c99b.svg",
     "static/media/menu-icon.svg": "/product_catalog/static/media/menu-icon.7d886604721a2522b7ee.svg",
     "static/media/arrow-icon.svg": "/product_catalog/static/media/arrow-icon.eadd4b1b07b5ba9bb8fd.svg",
-    "main.ba74c99f.css.map": "/product_catalog/static/css/main.ba74c99f.css.map",
-    "main.2814cf9f.js.map": "/product_catalog/static/js/main.2814cf9f.js.map"
+    "static/media/arrow-icon-left.svg": "/product_catalog/static/media/arrow-icon-left.883e600daa9abd3adf4d.svg",
+    "static/media/arrow-icon-right.svg": "/product_catalog/static/media/arrow-icon-right.27ea79700e177cccd9a1.svg",
+    "main.c2124217.css.map": "/product_catalog/static/css/main.c2124217.css.map",
+    "main.28c9a94c.js.map": "/product_catalog/static/js/main.28c9a94c.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba74c99f.css",
-    "static/js/main.2814cf9f.js"
+    "static/css/main.c2124217.css",
+    "static/js/main.28c9a94c.js"
   ]
 }
