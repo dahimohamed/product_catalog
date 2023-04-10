@@ -44,74 +44,71 @@ export const Header = () => {
 
   return (
     <header className="header" id="top">
-      <a className="logo" href="/"></a>
-
-      <nav
-        className={classNames('nav', {
-          'nav--is-active': isVisible,
-        })}
-      >
-        <ul
-          className={classNames('nav__list', {
-            'nav__list--is-visible': isVisible,
+      <div className="header__container">
+        <a className="logo" href="/"></a>
+        <nav
+          className={classNames('nav', {
+            'nav--is-active': isVisible,
           })}
         >
-          {headerTabs.map((tab) => {
-            const { id, path, name } = tab;
-
-            return (
-              <li key={id} className="nav__item ">
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    classNames('nav__link', {
-                      'nav__link--is-active': isActive,
-                    })
-                  }
-                  onClick={() => setIsVisible(false)}
-                >
-                  {name}
-                </NavLink>
-              </li>
-            );
+          <ul
+            className={classNames('nav__list', {
+              'nav__list--is-visible': isVisible,
+            })}
+          >
+            {headerTabs.map((tab) => {
+              const { id, path, name } = tab;
+              return (
+                <li key={id} className="nav__item ">
+                  <NavLink
+                    to={path}
+                    className={({ isActive }) =>
+                      classNames('nav__link', {
+                        'nav__link--is-active': isActive,
+                      })
+                    }
+                    onClick={() => setIsVisible(false)}
+                  >
+                    {name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <div
+          className={classNames('header__icons', {
+            'header__icons--is-visible': isVisible,
           })}
-        </ul>
-      </nav>
-      <div
-        className={classNames('header__icons', {
-          'header__icons--is-visible': isVisible,
-        })}
-      >
-        <NavLink
-          to="/favirout"
-          className={({ isActive }) =>
-            classNames('icon icon--heart-like', {
-              'icon--heart-like--is-active': isActive,
-            })
-          }
-
-          onClick={() => setIsVisible(false)}
-        ></NavLink>
-
-        <NavLink
-          to="/bag"
-          className={({ isActive }) =>
-            classNames('icon icon--shopping-bag', {
-              'icon--shopping-bag--is-active': isActive,
-            })
-          }
-
-          onClick={() => setIsVisible(false)}
-        ></NavLink>
+        >
+          <NavLink
+            to="/favirout"
+            className={({ isActive }) =>
+              classNames('icon icon--heart-like', {
+                'icon--heart-like--is-active': isActive,
+              })
+            }
+            onClick={() => setIsVisible(false)}
+          ></NavLink>
+          <NavLink
+            to="/bag"
+            className={({ isActive }) =>
+              classNames('icon icon--shopping-bag', {
+                'icon--shopping-bag--is-active': isActive,
+              })
+            }
+            onClick={() => setIsVisible(false)}
+          ></NavLink>
+        </div>
+        <a
+          onClick={() => {
+            setIsVisible(!isVisible);
+          }}
+          className={classNames('icon--menu', {
+            'icon--menu-cross': isVisible,
+          })}
+        ></a>
       </div>
-      <a
-        onClick={() => {
-          setIsVisible(!isVisible);
-        }}
-        className={classNames('icon--menu', {
-          'icon--menu-cross': isVisible,
-        })}
-      ></a>
     </header>
   );
 };
