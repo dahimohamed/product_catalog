@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 import './HomePage.scss';
 
@@ -29,6 +30,24 @@ export const HomePage = () => {
     []
   );
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () =>
+      setBannerIndex((currentIndex) => {
+        if (currentIndex < 1) {
+          return 2;
+        }
+
+        return currentIndex - 1;
+      }),
+    onSwipedRight: () =>
+      setBannerIndex((currentIndex) => {
+        if (currentIndex > 1) {
+          return 0;
+        }
+
+        return currentIndex + 1;
+      }),
+  });
   return (
     <div className="home">
       <h1 className="home__title">Welcome to Nice Gadgets store!</h1>
@@ -44,34 +63,7 @@ export const HomePage = () => {
         </div>
 
         <div
-          className={cn('home__banner-image', {
-            'home__banner-image--first': bannerIndex === 0,
-            'home__banner-image--second': bannerIndex === 1,
-            'home__banner-image--third': bannerIndex === 2,
-          })}
-        ></div>
-
-        <div
-          className="home__banner-icon"
-          onClick={() => {
-            handleBannerChange(Direction.Next, bannerIndex);
-          }}
-        >
-          <div className="home__icon home__icon--right"></div>
-        </div>
-      </div>
-
-      <div className="home__banner">
-        <div
-          className="home__banner-icon"
-          onClick={() => {
-            handleBannerChange(Direction.Prev, bannerIndex);
-          }}
-        >
-          <div className="home__icon home__icon--left"></div>
-        </div>
-
-        <div
+          {...handlers}
           className={cn('home__banner-image', {
             'home__banner-image--first': bannerIndex === 0,
             'home__banner-image--second': bannerIndex === 1,
