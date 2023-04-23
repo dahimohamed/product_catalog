@@ -82,14 +82,14 @@ export const Header = () => {
           })}
         >
           <NavLink
-            to="/favirout"
+            to="/favorites"
             className={({ isActive }) =>
               classNames('icon icon--heart-like', {
                 'icon--heart-like--is-active': isActive,
               })
             }
             onClick={() => setIsVisible(false)}
-          ></NavLink>
+          />
           <NavLink
             to="/bag"
             className={({ isActive }) =>
@@ -98,7 +98,7 @@ export const Header = () => {
               })
             }
             onClick={() => setIsVisible(false)}
-          ></NavLink>
+          />
         </div>
         <a
           onClick={() => {
@@ -107,7 +107,7 @@ export const Header = () => {
           className={classNames('icon--menu', {
             'icon--menu-cross': isVisible,
           })}
-        ></a>
+        />
       </div>
     </header>
   );

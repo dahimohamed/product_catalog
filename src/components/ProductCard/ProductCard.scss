@@ -1,0 +1,144 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.product-card {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  gap: 8px;
+  width: 212px;
+  height: 439px;
+  
+  background: #FFF;
+  border: 1px solid $element-color;
+
+  @include onTablet {
+    width: 237px;
+    height: 512px;
+  }
+
+  @include onDesktop {
+    width: 272px;
+  }
+
+  &__image {
+    height: 129px;
+    width: 148px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      height: 202px;
+      width: 174px;
+    }
+
+    @include onDesktop {
+      height: 196px;
+      width: 208px; 
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+    margin-bottom: 8px;
+    color: $primary-color;
+  }
+
+  &__price {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+
+    margin: 0;
+    margin-bottom: 24px;
+    color: $primary-color;
+
+    &::after {
+      display: block;
+      content: "";
+      margin-top: 8px;
+      border-bottom: 1px solid $element-color;
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    margin: 0;
+    margin-bottom: 8px;
+    color: $secondary-color;
+
+    &-title {
+      margin: 0;    
+    }
+
+    &-content {
+      color: $primary-color;
+      margin: 0;
+    }
+  }
+}
+
+.card-button {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    width: 100px;
+    height: 40px;
+    background: $primary-color;
+
+    @include onTablet {
+      width: 125px;
+    }
+
+    @include onDesktop {
+      width: 160px;
+    }
+  }
+
+  &__to-add {
+    text-decoration: none;
+    color: #FFF;
+  }
+
+  &__favorite {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border: 1px solid $element-color;
+
+    &-icon {
+      display: block;
+      height: 14px;
+      width: 15px;
+
+      background-image: url(../../images/header/icon--heart-like.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;   
+    }
+  }
+}

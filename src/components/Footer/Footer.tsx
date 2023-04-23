@@ -23,7 +23,7 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <a className="logo" href="/"></a>
+        <a className="logo" href="/" />
         <nav className="footer__nav">
           <ul className="footer__list">
             {footerLinks.map(link => {
@@ -47,7 +47,7 @@ export const Footer = () => {
               document.getElementById('top')?.scrollIntoView();
             }}
             className="footer__icon"
-          ></a>
+          />
         </div>
       </div>
     </footer>

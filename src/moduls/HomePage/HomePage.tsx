@@ -1,7 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 import './HomePage.scss';
+import { ProductCardList } from '../../components/ProductCardList';
 
 enum Direction {
   Prev = 'prev',
@@ -48,6 +49,22 @@ export const HomePage = () => {
         return currentIndex + 1;
       }),
   });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    scrollRef.current?.scroll({
+      left: scrollRef.current.scrollLeft - 300,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scroll({
+      left: scrollRef.current.scrollLeft + 300,
+      behavior: 'smooth',
+    });
+  };
   return (
     <div className="home">
       <h1 className="home__title">Welcome to Nice Gadgets store!</h1>
@@ -59,7 +76,7 @@ export const HomePage = () => {
             handleBannerChange(Direction.Prev, bannerIndex);
           }}
         >
-          <div className="home__icon home__icon--left"></div>
+          <div className="home__icon home__icon--left" />
         </div>
 
         <div
@@ -69,7 +86,7 @@ export const HomePage = () => {
             'home__banner-image--second': bannerIndex === 1,
             'home__banner-image--third': bannerIndex === 2,
           })}
-        ></div>
+        />
 
         <div
           className="home__banner-icon"
@@ -77,7 +94,7 @@ export const HomePage = () => {
             handleBannerChange(Direction.Next, bannerIndex);
           }}
         >
-          <div className="home__icon home__icon--right"></div>
+          <div className="home__icon home__icon--right" />
         </div>
       </div>
 
@@ -89,9 +106,26 @@ export const HomePage = () => {
               'home__dot--active': bannerIndex === index,
             })}
             onClick={() => setBannerIndex(index)}
-          ></div>
+          />
         ))}
       </div>
+
+      <section className="new-phones-section">
+        <h2 className="new-phones-section__title">Brand new models</h2>
+
+        <div className="new-phones-section__icons">
+          <div
+            className="new-phones-section__icon new-phones-section__icon--left"
+            onClick={scrollRight}
+          />
+          <div
+            className="new-phones-section__icon new-phones-section__icon--right"
+            onClick={scrollLeft}
+          />
+        </div>
+      </section>
+
+      <ProductCardList scrollRef={scrollRef} />
     </div>
   );
 };

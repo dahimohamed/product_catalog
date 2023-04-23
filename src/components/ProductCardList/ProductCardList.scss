@@ -1,0 +1,9 @@
+@import '../../styles/utils/mixins';
+@import '../../moduls/HomePage/HomePage.scss';
+
+.product-card-list {
+  @include useGrid (8, 16px);
+  touch-action: pan-x;
+  overflow-x: scroll;
+  overflow: hidden;
+}
