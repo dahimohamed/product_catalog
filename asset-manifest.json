@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.77b58956.css",
-    "main.js": "/product_catalog/static/js/main.c3afa406.js",
+    "main.css": "/product_catalog/static/css/main.5dc96367.css",
+    "main.js": "/product_catalog/static/js/main.bbca0293.js",
+    "static/media/00.png": "/product_catalog/static/media/00.d87fd1c20004d65116f3.png",
     "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.8798c2d4cea5c04ad214.svg",
     "static/media/banner-tablets.png": "/product_catalog/static/media/banner-tablets.a962057c1043a08f7737.png",
@@ -18,11 +19,11 @@
     "static/media/arrow-icon.svg": "/product_catalog/static/media/arrow-icon.eadd4b1b07b5ba9bb8fd.svg",
     "static/media/arrow-icon-left.svg": "/product_catalog/static/media/arrow-icon-left.883e600daa9abd3adf4d.svg",
     "static/media/arrow-icon-right.svg": "/product_catalog/static/media/arrow-icon-right.27ea79700e177cccd9a1.svg",
-    "main.77b58956.css.map": "/product_catalog/static/css/main.77b58956.css.map",
-    "main.c3afa406.js.map": "/product_catalog/static/js/main.c3afa406.js.map"
+    "main.5dc96367.css.map": "/product_catalog/static/css/main.5dc96367.css.map",
+    "main.bbca0293.js.map": "/product_catalog/static/js/main.bbca0293.js.map"
   },
   "entrypoints": [
-    "static/css/main.77b58956.css",
-    "static/js/main.c3afa406.js"
+    "static/css/main.5dc96367.css",
+    "static/js/main.bbca0293.js"
   ]
 }
