@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Phone } from '../ProductCardList';
 
 interface Props {
-  brandNewPhone: Phone;
+  product: Phone;
 }
 
-export const ProductCard: React.FC<Props> = ({ brandNewPhone }) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const {
     name,
     capacity,
@@ -15,7 +15,7 @@ export const ProductCard: React.FC<Props> = ({ brandNewPhone }) => {
     price,
     ram,
     screen,
-  } = brandNewPhone;
+  } = product;
 
   return (
     <div className="product-card">
@@ -23,14 +23,12 @@ export const ProductCard: React.FC<Props> = ({ brandNewPhone }) => {
         <Link to="/phones/1">
           <img
             className="product-card__image"
-            src={require('../../images/img/phones/apple-iphone-14-pro/gold/00.png')}
+            src={require(`../../images/${image}`)}
             alt={name}
           />
         </Link>
 
-        <p className="product-card__title">
-          {`${name} (MQ023)`}
-        </p>
+        <p className="product-card__title">{`${name} (MQ023)`}</p>
         <p className="product-card__price">{`$${price}`}</p>
         <div className="product-card__description">
           <p className="product-card__description-title">Screen</p>

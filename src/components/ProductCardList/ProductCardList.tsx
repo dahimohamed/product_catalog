@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ProductCardList.scss';
 
-import dataFromServer from '../../api/phones.json';
+
 import { ProductCard } from '../ProductCard/PorductCard';
 
 export interface Phone {
@@ -19,28 +19,23 @@ export interface Phone {
   screen: string;
   year: number;
 }
-const newPhones: Phone[] = dataFromServer.slice(-8);
+
  
 interface Props {
   scrollRef: React.RefObject<HTMLDivElement>,
+  products: Phone [],
 }
 
 
-export const ProductCardList: React.FC<Props> = ({scrollRef}) => {
-  const [brandNewPhones, SetBrandNewPhones] = useState<Phone[]>([]);
-
-  useEffect(() => {
-    SetBrandNewPhones(newPhones);
-  }, []);
-  
+export const ProductCardList: React.FC<Props> = ({scrollRef, products}) => {
   return (
     <div
       className="product-card-list"
       ref={scrollRef}
     >
-      {brandNewPhones.map((brandNewPhone: Phone) => {
+      {products.map((product: Phone) => {
         return (
-          <ProductCard key={brandNewPhone.id} brandNewPhone={brandNewPhone} />
+          <ProductCard key={product.id} product={product} />
         );
       })}
     </div>

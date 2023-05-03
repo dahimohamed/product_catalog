@@ -1,13 +1,20 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 import './HomePage.scss';
-import { ProductCardList } from '../../components/ProductCardList';
+import { ProductSlider } from '../../components/ProductSlider';
+import dataFromServer from '../../api/phones.json';
+import { Phone } from '../../components/ProductCardList';
+import { Link } from 'react-router-dom';
+// import { ProductCardList } from '../../components/ProductCardList';
 
 enum Direction {
   Prev = 'prev',
   Next = 'next',
 }
+
+const newPhones: Phone[] = dataFromServer.slice(-8);
+const hotPrices: Phone[] = dataFromServer.slice(0, 8);
 
 export const HomePage = () => {
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -50,21 +57,14 @@ export const HomePage = () => {
       }),
   });
 
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [brandNewPhones, setBrandNewPhones] = useState<Phone[]>([]);
+  const [hotPricesPhones, setHotPricesPhones] = useState<Phone[]>([]);
 
-  const scrollLeft = () => {
-    scrollRef.current?.scroll({
-      left: scrollRef.current.scrollLeft - 300,
-      behavior: 'smooth',
-    });
-  };
+  useEffect(() => {
+    setBrandNewPhones(newPhones);
+    setHotPricesPhones(hotPrices);
+  }, []);
 
-  const scrollRight = () => {
-    scrollRef.current?.scroll({
-      left: scrollRef.current.scrollLeft + 300,
-      behavior: 'smooth',
-    });
-  };
   return (
     <div className="home">
       <h1 className="home__title">Welcome to Nice Gadgets store!</h1>
@@ -110,22 +110,36 @@ export const HomePage = () => {
         ))}
       </div>
 
-      <section className="new-phones-section">
-        <h2 className="new-phones-section__title">Brand new models</h2>
+      <ProductSlider products={brandNewPhones} title="Brand new models" />
 
-        <div className="new-phones-section__icons">
-          <div
-            className="new-phones-section__icon new-phones-section__icon--left"
-            onClick={scrollRight}
-          />
-          <div
-            className="new-phones-section__icon new-phones-section__icon--right"
-            onClick={scrollLeft}
-          />
+      <section className="shop-by-category">
+        <h2 className="shop-by-category__title">Shop by category</h2>
+
+        <div className="shop-by-category__content">
+          <div className="shop-by-category__phones">
+            <Link to="/phones" className="shop-by-category__image shop-by-category__phones-image" />
+            <h3 className="shop-by-category__name">Mobile phones</h3>
+            <p className="shop-by-category__quantity">95 models</p>
+          </div>
+
+          <div className="shop-by-category__tablets">
+            <Link to="/tablets" className="shop-by-category__image shop-by-category__tablets-image" />
+            <h3 className="shop-by-category__name">Tablets</h3>
+            <p className="shop-by-category__quantity">24 models</p>
+          </div>
+          
+          <div className="shop-by-category__accessories">
+            <Link
+              to="/accessories"
+              className="shop-by-category__image shop-by-category__accessories-image"
+            />
+            <h3 className="shop-by-category__name">Accessories</h3>
+            <p className="shop-by-category__quantity">100 models</p>
+          </div>
         </div>
       </section>
 
-      <ProductCardList scrollRef={scrollRef} />
+      <ProductSlider products={hotPricesPhones} title="Hot prices" />
     </div>
   );
 };

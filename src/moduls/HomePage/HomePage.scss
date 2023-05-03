@@ -183,3 +183,94 @@
    }
   }
 }
+
+.shop-by-category {
+  &__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: $primary-color;
+
+    margin: 0;
+    margin-bottom: 24px;
+    padding: 0;
+
+    @include onTablet {
+      font-size: 32px;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 24px;
+  
+    @include onTablet {
+      width: 187px;
+      height: 187px;
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      width: 368px;
+      height: 368px;
+    }
+  }
+
+  &__phones-image {
+    background-color: #6D6474; 
+    background-image: url(../../images/home/image6.png);
+    background-position: 30px 15px ;
+
+    @include onTablet {
+      background-position: 10px 5px;
+    }
+  }
+
+  &__tablets-image {
+    background-color: #8D8D92;
+    background-image: url(../../images/home/image5.png);
+    background-position: 4px;
+  }
+
+  &__accessories-image {
+    background-color: #973D5F;   
+    background-image: url(../../images/home/image7.png);
+  }
+  
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: $primary-color;
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 0;
+  }
+
+  &__quantity {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $secondary-color;
+  }
+}
+ 
