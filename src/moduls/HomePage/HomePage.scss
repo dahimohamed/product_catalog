@@ -131,60 +131,17 @@
   }
 }
 
-.new-phones-section {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
-
-  &__title {
-    margin: 0;
-    padding: 0;
-    width: 136px;
-
-    font-weight: 800;
-    font-size: 22px;
-    line-height: 140%;
-    color: $primary-color;
-
-    @include onTablet {
-      font-size: 32px;
-      line-height: 41px;
-      letter-spacing: -0.01em;
-      width: 491px;
-    }
-    @include onDesktop {
-      width: 560px;
-    }
-  }
-
-  &__icons {
-    display: flex;
-    gap: 16px;
-  }
-
-  &__icon {
-    height: 30px;
-    width: 30px;
-
-    box-sizing: border-box;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid $element-color;
-    cursor: pointer;
-
-
-    &--left {
-      background-image: url(../../images/home/arrow-icon-left.svg);
-    }
-
-    &--right {
-
-    background-image: url(../../images/home/arrow-icon-right.svg);
-   }
-  }
-}
-
 .shop-by-category {
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+
   &__title {
     font-weight: 800;
     font-size: 22px;
@@ -205,31 +162,29 @@
   &__content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     @include onTablet {
       flex-direction: row;
+      gap: 16px;
     }
+  }
+
+  &__product {
+    flex-grow: 1;
+    width: 100%;
   }
 
   &__image {
     display: block;
     padding-top: 100%;
-    width: 100%;
 
     background-repeat: no-repeat;
     background-size: contain;
     margin-bottom: 24px;
-  
-    @include onTablet {
-      width: 187px;
-      height: 187px;
-      padding-top: 0;
-    }
+    transition: transform 0.3s;
 
-    @include onDesktop {
-      width: 368px;
-      height: 368px;
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
@@ -269,8 +224,12 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
+    margin-bottom: 32px;
 
     color: $secondary-color;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 }
- 

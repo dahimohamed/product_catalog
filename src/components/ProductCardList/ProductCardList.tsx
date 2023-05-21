@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import './ProductCardList.scss';
 
 
@@ -22,21 +22,26 @@ export interface Phone {
 
  
 interface Props {
-  scrollRef: React.RefObject<HTMLDivElement>,
-  products: Phone [],
+  scrollRef: RefObject<HTMLDivElement>;
+  products: Phone[];
+  onScroll?: () => void;
 }
 
+export const ProductCardList: React.FC<Props> = ({
+  scrollRef,
+  products,
+  onScroll,
+}) => {
+  const handleScroll = () => {
+    if (onScroll) {
+      onScroll();
+    }
+  };
 
-export const ProductCardList: React.FC<Props> = ({scrollRef, products}) => {
   return (
-    <div
-      className="product-card-list"
-      ref={scrollRef}
-    >
+    <div className="product-card-list" ref={scrollRef} onScroll={handleScroll}>
       {products.map((product: Phone) => {
-        return (
-          <ProductCard key={product.id} product={product} />
-        );
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );

@@ -1,5 +1,62 @@
-@import '../../styles/blocks/grid.scss';
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
 
 .product-slider {
   margin-bottom: 80px;
+}
+
+.new-phones-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    width: 136px;
+
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: $primary-color;
+
+    @include onTablet {
+      font-size: 32px;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+      width: 491px;
+    }
+    @include onDesktop {
+      width: 560px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__icon {
+    height: 30px;
+    width: 30px;
+
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid $element-color;
+    cursor: pointer;
+
+
+    &--left {
+      background-image: url(../../images/home/arrow-icon-left.svg);
+    }
+
+    &--isActive {
+      border: 1px solid $primary-color;
+    }
+
+    &--right {
+      background-image: url(../../images/home/arrow-icon-right.svg);
+    }
+  }
 }

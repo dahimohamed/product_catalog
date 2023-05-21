@@ -14,7 +14,7 @@ enum Direction {
 }
 
 const newPhones: Phone[] = dataFromServer.slice(-8);
-const hotPrices: Phone[] = dataFromServer.slice(0, 8);
+const hotPrices: Phone[] = dataFromServer.slice(0, 8).reverse();
 
 export const HomePage = () => {
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -116,19 +116,19 @@ export const HomePage = () => {
         <h2 className="shop-by-category__title">Shop by category</h2>
 
         <div className="shop-by-category__content">
-          <div className="shop-by-category__phones">
+          <div className="shop-by-category__product">
             <Link to="/phones" className="shop-by-category__image shop-by-category__phones-image" />
             <h3 className="shop-by-category__name">Mobile phones</h3>
             <p className="shop-by-category__quantity">95 models</p>
           </div>
 
-          <div className="shop-by-category__tablets">
+          <div className="shop-by-category__product">
             <Link to="/tablets" className="shop-by-category__image shop-by-category__tablets-image" />
             <h3 className="shop-by-category__name">Tablets</h3>
             <p className="shop-by-category__quantity">24 models</p>
           </div>
           
-          <div className="shop-by-category__accessories">
+          <div className="shop-by-category__product">
             <Link
               to="/accessories"
               className="shop-by-category__image shop-by-category__accessories-image"
