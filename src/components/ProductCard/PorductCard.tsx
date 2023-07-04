@@ -2,20 +2,15 @@ import React from 'react';
 import './ProductCard.scss';
 import { Link } from 'react-router-dom';
 import { Phone } from '../ProductCardList';
+import classNames from 'classnames';
 
 interface Props {
   product: Phone;
+  title: string,
 }
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
-  const {
-    name,
-    capacity,
-    image,
-    price,
-    ram,
-    screen,
-  } = product;
+export const ProductCard: React.FC<Props> = ({ product, title }) => {
+  const { name, capacity, image, price, ram, screen, fullPrice, } = product;
 
   return (
     <div className="product-card">
@@ -31,7 +26,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           <p className="product-card__title">{`${name} (MQ023)`}</p>
         </Link>
 
-        <p className="product-card__price">{`$${price}`}</p>
+        <div className="product-card__price-container">
+          <p className="product-card__price">{`$${price}`}</p>
+          <p className={classNames('product-card__full-price', {
+            'product-card__full-price--isBrandNewPhones': title === 'Brand new models',
+          })}>{`$${fullPrice}`}</p>
+        </div>
         <div className="product-card__description">
           <p className="product-card__description-title">Screen</p>
           <p className="product-card__description-content">{screen}</p>

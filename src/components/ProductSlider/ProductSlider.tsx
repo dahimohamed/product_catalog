@@ -75,7 +75,7 @@ export const ProductSlider: React.FC<Props> = ({ products, title }) => {
         </div>
       </section>
 
-      <ProductCardList scrollRef={scrollRef} products={products} onScroll={handleScroll} />
+      <ProductCardList scrollRef={scrollRef} products={products} onScroll={handleScroll} title={title} />
     </div>
   );
 };

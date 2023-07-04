@@ -6,7 +6,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 32px;
   gap: 8px;
   width: 212px;
@@ -63,19 +63,38 @@
   }
 
   &__price {
-    font-weight: 800;
-    font-size: 22px;
-    line-height: 140%;
-
+    display: inline-block;
     margin: 0;
-    margin-bottom: 24px;
-    color: $primary-color;
+    margin-right: 10px;
 
-    &::after {
-      display: block;
-      content: "";
-      margin-top: 8px;
-      border-bottom: 1px solid $element-color;
+    &-container {
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+
+      margin: 0;
+      margin-bottom: 24px;
+      color: $primary-color;
+
+      &::after {
+        display: block;
+        content: "";
+        margin-top: 8px;
+        border-bottom: 1px solid $element-color;
+      }
+    }
+  }
+
+  &__full-price {
+    display: inline-block;
+    margin: 0;
+
+    font-weight: 600;
+    color: $secondary-color;
+    text-decoration: line-through;
+
+    &--isBrandNewPhones {
+      display: none;
     }
   }
 

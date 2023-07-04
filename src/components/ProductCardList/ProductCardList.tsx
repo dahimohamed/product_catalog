@@ -25,12 +25,14 @@ interface Props {
   scrollRef: RefObject<HTMLDivElement>;
   products: Phone[];
   onScroll?: () => void;
+  title: string,
 }
 
 export const ProductCardList: React.FC<Props> = ({
   scrollRef,
   products,
   onScroll,
+  title,
 }) => {
   const handleScroll = () => {
     if (onScroll) {
@@ -41,7 +43,7 @@ export const ProductCardList: React.FC<Props> = ({
   return (
     <div className="product-card-list" ref={scrollRef} onScroll={handleScroll}>
       {products.map((product: Phone) => {
-        return <ProductCard key={product.id} product={product} />;
+        return <ProductCard key={product.id} product={product} title={title} />;
       })}
     </div>
   );
