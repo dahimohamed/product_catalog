@@ -20,15 +20,17 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className="product-card">
       <div className="product-crad__content">
-        <Link to="/phones/1">
+        <Link to="/phones/1" className="product-card__image-container">
           <img
             className="product-card__image"
             src={require(`../../images/${image}`)}
             alt={name}
           />
         </Link>
+        <Link to="/phones/1" className="product-card__title-container">
+          <p className="product-card__title">{`${name} (MQ023)`}</p>
+        </Link>
 
-        <p className="product-card__title">{`${name} (MQ023)`}</p>
         <p className="product-card__price">{`$${price}`}</p>
         <div className="product-card__description">
           <p className="product-card__description-title">Screen</p>
