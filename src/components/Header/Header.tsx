@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
+import { AppContext } from '../../AppContext.';
 
 type HeaderTabType = {
   id: number;
@@ -37,10 +38,9 @@ const headerTabs: HeaderTabsType = [
   },
 ];
 
-
-
-export const Header = () => {
+export const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { favoriteItems, cartItems } = useContext(AppContext);
 
   return (
     <header className="header" id="top">
@@ -59,7 +59,7 @@ export const Header = () => {
             {headerTabs.map((tab) => {
               const { id, path, name } = tab;
               return (
-                <li key={id} className="nav__item ">
+                <li key={id} className="nav__item">
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
@@ -89,7 +89,13 @@ export const Header = () => {
               })
             }
             onClick={() => setIsVisible(false)}
-          />
+          >
+            {favoriteItems.length > 0 && (
+              <div className="icon__quantity">
+                {favoriteItems?.length}
+              </div>
+            )}
+          </NavLink>
           <NavLink
             to="/bag"
             className={({ isActive }) =>
@@ -98,7 +104,13 @@ export const Header = () => {
               })
             }
             onClick={() => setIsVisible(false)}
-          />
+          >
+            {cartItems.length > 0 && (
+              <div className="icon__quantity">
+                {cartItems.length}
+              </div>
+            )}
+          </NavLink>
         </div>
         <a
           onClick={() => {

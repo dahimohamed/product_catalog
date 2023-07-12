@@ -4,9 +4,8 @@ import cn from 'classnames';
 import './HomePage.scss';
 import { ProductSlider } from '../../components/ProductSlider';
 import dataFromServer from '../../api/phones.json';
-import { Phone } from '../../components/ProductCardList';
 import { Link } from 'react-router-dom';
-// import { ProductCardList } from '../../components/ProductCardList';
+import { Phone } from '../../types/phones';
 
 enum Direction {
   Prev = 'prev',
@@ -14,9 +13,9 @@ enum Direction {
 }
 
 const newPhones: Phone[] = dataFromServer.slice(-8);
-const hotPrices: Phone[] = dataFromServer.slice(0, 8).reverse();
+export const hotPrices: Phone[] = dataFromServer.slice(0, 8).reverse();
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
   const [bannerIndex, setBannerIndex] = useState(0);
 
   const handleBannerChange = useCallback(
@@ -26,13 +25,13 @@ export const HomePage = () => {
           setBannerIndex(2);
           return;
         }
-        setBannerIndex(currentIndex => currentIndex - 1);
+        setBannerIndex((currentIndex) => currentIndex - 1);
       } else {
         if (index > 1) {
           setBannerIndex(0);
           return;
         }
-        setBannerIndex(currentIndex => currentIndex + 1);
+        setBannerIndex((currentIndex) => currentIndex + 1);
       }
     },
     []
@@ -110,24 +109,33 @@ export const HomePage = () => {
         ))}
       </div>
 
-      <ProductSlider products={brandNewPhones} title="Brand new models" />
+      <ProductSlider
+        products={brandNewPhones}
+        title="Brand new models"
+      />
 
       <section className="shop-by-category">
         <h2 className="shop-by-category__title">Shop by category</h2>
 
         <div className="shop-by-category__content">
           <div className="shop-by-category__product">
-            <Link to="/phones" className="shop-by-category__image shop-by-category__phones-image" />
+            <Link
+              to="/phones"
+              className="shop-by-category__image shop-by-category__phones-image"
+            />
             <h3 className="shop-by-category__name">Mobile phones</h3>
             <p className="shop-by-category__quantity">95 models</p>
           </div>
 
           <div className="shop-by-category__product">
-            <Link to="/tablets" className="shop-by-category__image shop-by-category__tablets-image" />
+            <Link
+              to="/tablets"
+              className="shop-by-category__image shop-by-category__tablets-image"
+            />
             <h3 className="shop-by-category__name">Tablets</h3>
             <p className="shop-by-category__quantity">24 models</p>
           </div>
-          
+
           <div className="shop-by-category__product">
             <Link
               to="/accessories"
@@ -139,7 +147,10 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <ProductSlider products={hotPricesPhones} title="Hot prices" />
+      <ProductSlider
+        products={hotPricesPhones}
+        title="Hot prices"
+      />
     </div>
   );
 };

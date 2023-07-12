@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ProductCard.scss';
 import { Link } from 'react-router-dom';
-import { Phone } from '../ProductCardList';
 import classNames from 'classnames';
+import { Phone } from '../../types/phones';
+import { AppContext } from '../../AppContext.';
 
 interface Props {
   product: Phone;
-  title: string,
+  title?: string;
+  alreadyInFavorites: boolean | undefined;
+  alreadyInCart: boolean | undefined;
 }
 
-export const ProductCard: React.FC<Props> = ({ product, title }) => {
-  const { name, capacity, image, price, ram, screen, fullPrice, } = product;
+export const ProductCard: React.FC<Props> = ({
+  product,
+  title,
+  alreadyInFavorites,
+  alreadyInCart,
+}) => {
+  const { id, name, capacity, image, price, ram, screen, fullPrice } = product;
+  const { addToFavorites, removeFromFavorites, addToCart, removeFromCart } = useContext(AppContext);
 
   return (
     <div className="product-card">
@@ -28,9 +37,12 @@ export const ProductCard: React.FC<Props> = ({ product, title }) => {
 
         <div className="product-card__price-container">
           <p className="product-card__price">{`$${price}`}</p>
-          <p className={classNames('product-card__full-price', {
-            'product-card__full-price--isBrandNewPhones': title === 'Brand new models',
-          })}>{`$${fullPrice}`}</p>
+          <p
+            className={classNames('product-card__full-price', {
+              'product-card__full-price--isBrandNewPhones':
+                title === 'Brand new models',
+            })}
+          >{`$${fullPrice}`}</p>
         </div>
         <div className="product-card__description">
           <p className="product-card__description-title">Screen</p>
@@ -46,13 +58,39 @@ export const ProductCard: React.FC<Props> = ({ product, title }) => {
         </div>
 
         <div className="card-button">
-          <div className="card-button-link">
-            <Link to="/bag" className="card-button__to-add">
-              Add to cart
-            </Link>
+          <div
+            className={classNames('card-button-selection', {
+              'card-button-selection--is-added': alreadyInCart,
+            })}
+            onClick={() => {
+              if (!alreadyInCart) {
+                addToCart(id);
+              } else {
+                removeFromCart(id);
+              }
+            }}
+          >
+            {alreadyInCart ? (
+              <div className="card-button__added">Added to cart</div>
+            ) : (
+              <div className="card-button__to-add">Add to cart</div>
+            )}
           </div>
-          <div className="card-button__favorite">
-            <Link to="/favorites" className="card-button__favorite-icon"></Link>
+          <div
+            className="card-button__favorite"
+            onClick={() => {
+              if (!alreadyInFavorites) {
+                addToFavorites(id);
+              } else {
+                removeFromFavorites(id);
+              }
+            }}
+          >
+            <div
+              className={classNames('card-button__favorite-icon', {
+                'card-button__favorite-icon--isLiked': alreadyInFavorites,
+              })}
+            ></div>
           </div>
         </div>
       </div>

@@ -1,14 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ProductSlider.scss';
-import { Phone, ProductCardList } from '../ProductCardList';
+import { ProductCardList } from '../ProductCardList';
 import classNames from 'classnames';
+import { Phone } from '../../types/phones';
+import { useSwipeable } from 'react-swipeable';
 
 interface Props {
   products: Phone[];
   title: string;
 }
 
-export const ProductSlider: React.FC<Props> = ({ products, title }) => {
+export const ProductSlider: React.FC<Props> = ({
+  products,
+  title,
+}) => {
   const [isNextActive, setIsNextActive] = useState(false);
   const [isPrevActive, setIsPrevActive] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -28,7 +33,9 @@ export const ProductSlider: React.FC<Props> = ({ products, title }) => {
   const updateScrollArrows = () => {
     if (scrollRef.current) {
       const container = scrollRef.current;
-      setIsNextActive(container.scrollLeft < container.scrollWidth - container.clientWidth);
+      setIsNextActive(
+        container.scrollLeft < container.scrollWidth - container.clientWidth
+      );
       setIsPrevActive(container.scrollLeft > 0);
     }
   };
@@ -40,7 +47,7 @@ export const ProductSlider: React.FC<Props> = ({ products, title }) => {
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -300,
+        left: -230,
         behavior: 'smooth',
       });
     }
@@ -49,33 +56,52 @@ export const ProductSlider: React.FC<Props> = ({ products, title }) => {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 300,
+        left: 230,
         behavior: 'smooth',
       });
     }
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => scrollRight(),
+    onSwipedRight: () => scrollLeft(),
+  });
+
   return (
-    <div className="product-slider">
+    <div
+      {...handlers}
+      className="product-slider"
+    >
       <section className="new-phones-section">
         <h2 className="new-phones-section__title">{title}</h2>
         <div className="new-phones-section__icons">
           <div
-            className={classNames('new-phones-section__icon new-phones-section__icon--left', {
-              'new-phones-section__icon--isActive': isPrevActive,
-            })}
+            className={classNames(
+              'new-phones-section__icon new-phones-section__icon--left',
+              {
+                'new-phones-section__icon--isActive': isPrevActive,
+              }
+            )}
             onClick={scrollLeft}
           />
           <div
-            className={classNames('new-phones-section__icon new-phones-section__icon--right', {
-              'new-phones-section__icon--isActive': isNextActive,
-            })}
+            className={classNames(
+              'new-phones-section__icon new-phones-section__icon--right',
+              {
+                'new-phones-section__icon--isActive': isNextActive,
+              }
+            )}
             onClick={scrollRight}
           />
         </div>
       </section>
 
-      <ProductCardList scrollRef={scrollRef} products={products} onScroll={handleScroll} title={title} />
+      <ProductCardList
+        scrollRef={scrollRef}
+        products={products}
+        onScroll={handleScroll}
+        title={title}
+      />
     </div>
   );
 };
