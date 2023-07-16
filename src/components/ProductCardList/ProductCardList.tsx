@@ -35,7 +35,7 @@ export const ProductCardList: React.FC<Props> = ({
 
   return (
     <div className={classNames('product-card-list', {
-      'product-card-list--favorites': title === 'favorites',
+      'product-card-list--favorites': title === 'no slider',
     })} ref={scrollRef} onScroll={handleScroll}>
       {products.map((product: Phone) => {
         return (

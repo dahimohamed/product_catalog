@@ -1,0 +1,135 @@
+@import '../../styles/utils/vars.scss';
+@import '../../styles/utils/mixins';
+
+.cartitem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid #E2E6E9;
+  background: #FFF;
+
+  @include onTablet {
+    flex-direction: row;
+    padding: 24px;
+    align-items: center;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 53px;
+  }
+
+
+  &__remove {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url('../../images/icons/Close.svg');
+    cursor: pointer;
+  }
+
+  &__image {
+    width: 66px;
+    height: 66px;
+
+    &-container {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__name {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+// #region Icon
+  &__icons {
+    display: flex;
+  }
+
+  &__quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__icon {
+    &-container {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background-color: #FFF;
+      border: 1px solid #B4BDC3;
+
+      &--disabled {
+        border: 1px solid $element-color;
+        cursor: default;
+      }
+    }
+
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--minus {
+      background-image: url(../../images/icons/minus.svg);
+
+      &--disabled {
+        background-image: url(../../images/icons/minus-white.svg);
+      }
+    }
+
+    &--plus {
+      background-image: url(../../images/icons/Plus.svg);
+
+      &--disabled {
+        background-image: url(../../images/icons/plus-white.svg);
+      }
+    }
+  }
+//#endregion
+
+  &__price {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+  }
+}

@@ -1,0 +1,152 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.phones {
+  padding-left: 16px;
+  padding-bottom: 56px;
+
+  @include onTablet {
+    padding-left: 24px;
+    padding-bottom: 64px;
+  }
+
+  @include onDesktop {
+    padding-left: 152px;
+    padding-bottom: 80x;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 16px;
+    margin: 0 auto;
+  }
+
+  &__filter {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 24px;
+
+    &--sortby {
+      max-width: 180px;
+    }
+
+    &--perpage {
+      max-width: 136px;
+    }
+
+    &--text {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary-color;
+    }
+
+    &--select {
+      box-sizing: border-box;
+      height: 40px;
+      background-color: #FFF;
+      outline: none;
+      appearance: none;
+  
+      font-family: 'Mont';
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      cursor: pointer;
+      color: $primary-color;
+    }
+  }
+
+  &__list {
+    margin-bottom: 24px;
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 64px;
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+
+    &-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      &--middle {
+        gap: 8px;
+      }
+    }
+
+    &-page-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background-color: #FFF;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      border: 1px solid $element-color;
+
+      &--selected {
+        cursor: default;
+        color: #FFF;
+        background-color: $primary-color;
+      }
+    }
+
+    &-icon {
+      width: 16px;
+      height: 16px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+       &-container {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        background-color: #FFF;
+        border: 1px solid #B4BDC3;
+  
+        &--disabled {
+          border: 1px solid $element-color;
+          cursor: default;
+          background-color: #FFF;
+        }
+      }
+  
+      &--left {
+        background-image: url(../../images/home/arrow-icon-left.svg);
+  
+        &--disabled {
+          background-image: url(../../images/icons//disabled-left-arrow.svg);
+        }
+      }
+  
+      &--right {
+        background-image: url(../../images/home/arrow-icon-right.svg);
+  
+        &--disabled {
+          background-image: url(../../images/icons/disabled-right-arrow.svg);
+        }
+      }
+    }
+  }
+}

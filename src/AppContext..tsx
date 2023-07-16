@@ -80,7 +80,7 @@ export const AppProvider: React.FC<ProviderProps> = ({ children }) => {
 
       setCartItems(filteredCartItems);
     },
-    [favoriteItems]
+    [cartItems]
   );
  
   const context = useMemo(

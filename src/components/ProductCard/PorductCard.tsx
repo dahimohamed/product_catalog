@@ -24,14 +24,14 @@ export const ProductCard: React.FC<Props> = ({
   return (
     <div className="product-card">
       <div className="product-crad__content">
-        <Link to="/phones/1" className="product-card__image-container">
+        <Link to="/phones" className="product-card__image-container">
           <img
             className="product-card__image"
             src={require(`../../images/${image}`)}
             alt={name}
           />
         </Link>
-        <Link to="/phones/1" className="product-card__title-container">
+        <Link to="/phones" className="product-card__title-container">
           <p className="product-card__title">{`${name} (MQ023)`}</p>
         </Link>
 

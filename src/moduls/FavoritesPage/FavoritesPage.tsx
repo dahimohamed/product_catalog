@@ -26,7 +26,7 @@ export const FavoritesPage: React.FC = () => {
 
       <ProductCardList
         products={favoriteItems}
-        title="favorites"
+        title="no slider"
       />
     </div>
   );
