@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import React, { type ReactNode, useCallback, useMemo, useState } from 'react';
+import React, { type ReactNode, useCallback, useMemo, useState, useEffect } from 'react';
 import { Phone } from './types/phones';
-import dataFromServer from './api/phones.json';
+import phoneProductsFromServer from './api/phones.json';
 
 interface ProviderProps {
   children: ReactNode
 }
 
 interface AppContextType {
+  phoneProducts: Phone[];
   favoriteItems: Phone[];
   setFavoriteItems: (phone: Phone[]) => void;
   cartItems: Phone[];
@@ -21,6 +22,7 @@ interface AppContextType {
 }
 
 export const AppContext = React.createContext<AppContextType>({
+  phoneProducts: [],
   favoriteItems: [],
   cartItems: [],
   setFavoriteItems: () => {},
@@ -32,12 +34,17 @@ export const AppContext = React.createContext<AppContextType>({
 });
 
 export const AppProvider: React.FC<ProviderProps> = ({ children }) => {
+  const [phoneProducts, setPhoneProducts] = useState<Phone[]>([]);
   const [favoriteItems, setFavoriteItems] = useState<Phone[]>([]);
   const [cartItems, setCartItems] = useState<Phone[]>([]);
+
+  useEffect(() => {
+    setPhoneProducts(phoneProductsFromServer);
+  }, []);
  
   const addToFavorites = useCallback(
     (id: string) => {
-      const foundFavoriteItem = dataFromServer.find(
+      const foundFavoriteItem = phoneProductsFromServer.find(
         (product) => product.id === id
       );
 
@@ -50,7 +57,7 @@ export const AppProvider: React.FC<ProviderProps> = ({ children }) => {
 
   const addToCart = useCallback(
     (id: string) => {
-      const foundItem = dataFromServer.find(
+      const foundItem = phoneProductsFromServer.find(
         (product) => product.id === id
       );
 
@@ -85,6 +92,7 @@ export const AppProvider: React.FC<ProviderProps> = ({ children }) => {
  
   const context = useMemo(
     () => ({
+      phoneProducts,
       favoriteItems,
       setFavoriteItems,
       addToFavorites,
@@ -94,7 +102,7 @@ export const AppProvider: React.FC<ProviderProps> = ({ children }) => {
       addToCart,
       removeFromCart,
     }),
-    [favoriteItems, cartItems]
+    [phoneProducts, favoriteItems, cartItems]
   );
 
   return (

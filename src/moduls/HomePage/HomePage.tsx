@@ -13,7 +13,7 @@ enum Direction {
 }
 
 const newPhones: Phone[] = dataFromServer.slice(-8);
-export const hotPrices: Phone[] = dataFromServer.slice(0, 8).reverse();
+const hotPrices: Phone[] = dataFromServer.slice(0, 8).reverse();
 
 export const HomePage: React.FC = () => {
   const [bannerIndex, setBannerIndex] = useState(0);

@@ -19,6 +19,9 @@ export const PhonesPage = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
+    // fetch('../../api/phones.json')
+    //   .then((resp) => resp.json())
+    //   .then((data) => setPhones(data));
     setPhones(dataFromServer);
   }, []);
 

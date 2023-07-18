@@ -51,7 +51,7 @@ export const CartItem: React.FC<Props> = ({
           onClick={() => onRemove(product.id)}
         ></div>
 
-        <Link to={'/phones'} className="cartitem__image-container">
+        <Link to={`/phones/${product.phoneId}`} className="cartitem__image-container">
           <img
             className="cartitem__image"
             src={require(`../../images/${product.image}`)}

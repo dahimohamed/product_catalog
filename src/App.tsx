@@ -11,6 +11,7 @@ import { AppProvider } from './AppContext.';
 import { PhonesPage } from './moduls/PhonesPage/PhonesPage';
 import { TabletsPage } from './moduls/TabletsPage';
 import { AccessoriesPage } from './moduls/AccessoriesPage';
+import { ProductDetailsPage } from './moduls/ProductDetailsPage';
 
 export const App = () => {
   return (
@@ -23,11 +24,12 @@ export const App = () => {
 
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/phones" element={<PhonesPage />} />
+          <Route path="/phones/:phoneId" element={<ProductDetailsPage />} />
           <Route path="/tablets" element={<TabletsPage />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/bag" element={<BagPage />} />
-          
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

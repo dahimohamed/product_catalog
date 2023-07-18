@@ -1,0 +1,410 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.details {
+  padding-top: 48px;
+  padding-left: 16px;
+  padding-bottom: 56px;
+  padding: 48px 16px 56px;
+
+  @include onTablet {
+    padding-top: 60px;
+    padding-left: 24px;
+    padding-bottom: 64px;
+    padding: 60px 24px 64px;
+  }
+
+  @include onDesktop {
+    padding-left: 152px;
+    padding-bottom: 80x;
+    padding: 60px 152px 80px;
+  }
+  &__icon {
+    width: 16px;
+    height: 16px;
+
+    &--right-arrow {
+      background-image: url(../../images/icons/disabled-right-arrow.svg);
+    }
+
+    &--left-arrow {
+      background-image: url(../../images/home/arrow-icon-left.svg);
+    }
+  }
+
+
+  &__paths {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 25px 0 24px;
+    min-width: 450px;
+
+    @include onTablet {
+      margin-bottom: 41px;
+    }
+  }
+
+  &__path-home {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../images/icons/Home.svg);
+  }
+
+  &__path-phones {
+    text-decoration: none;
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__path-name {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: $secondary-color;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $secondary-color;
+    margin-bottom: 16px;
+    width: 54px;
+    gap: 6px;
+    
+    &-text {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+
+      &--hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    margin: 0 0 32px;
+
+    @include onTablet {
+      font-size: 32px;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      flex-direction: row;
+      margin-bottom: 64px;
+    }
+
+    @media (min-width: 800px) {
+      gap: 75px;
+    }
+
+    @include onDesktop {
+      gap: 105px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+      
+    @include onTablet {
+      flex-direction: row;
+      gap: 36px;
+    }
+    
+    &-image {
+      box-sizing: border-box;
+      width: 274px;
+      height: 274px;
+      object-fit: contain;
+      transition: transform 300ms;
+
+      &--anim {
+        transform: scale(0.8);
+      }
+
+      
+      @include onTablet {
+        order: 1;
+        padding: 0;
+      }
+
+      @include onDesktop {
+        width: 442px;
+        height: 442px;
+      }
+    }
+  }
+
+  &__previews {
+    display: flex;
+    gap: 12px;
+
+    @include onTablet {
+      flex-direction: column;
+    }
+
+    @include onDesktop {
+      gap: 24px;
+    }
+
+    &-image {
+      border: 1px solid $element-color;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      cursor: pointer;
+
+      @include onDesktop {
+        width: 80px;
+        height: 80px;
+      }
+      
+      &--active {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  &__pick {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      width: 238px;
+    }
+
+    @include onDesktop {
+      width: 320px;
+    }
+  }
+
+  &__colors {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    &-title {
+      position: relative;
+      margin: 0;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary-color;
+
+      &::after {
+        content: "ID: 802390";
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    &-previews {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__color {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    &-container {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $element-color;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  &__divider {
+    border-bottom: 1px solid $element-color;
+    margin-bottom: 24px;
+  }
+
+  &__capacities {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary-color;
+    }
+
+    &-previews {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__capacity {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 8px 4px;
+    height: 32px;
+    margin-bottom: 24px;
+    border: 1px solid #B4BDC3;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+
+
+    &--active {
+      color: #FFF;
+      background-color: $primary-color;
+      border: 0;
+    }
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 140%;
+
+    margin-bottom: 16px;
+  }
+
+  &__fullprice {
+    font-size: 22px;
+    font-weight: 600;
+    color: $secondary-color;
+    text-decoration: line-through;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  &__specs {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    &--text {
+      color: $secondary-color;
+    }
+
+    &--value {
+      font-weight: 600;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    @include onTablet {
+      gap: 64px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__about {
+    @include onDesktop {
+      width: 50%;
+    }
+    &--title {
+      margin: 0 0 16px;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+    }
+
+    &--subtitle {
+      margin: 0 0 16px;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    &--text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: $secondary-color;
+
+      margin-bottom: 32px;
+    }
+  }
+
+  &__techspecs {
+    margin-bottom: 56px;
+    flex-grow: 1;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+    &--title {
+      margin: 0 0 16px;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.card-buttons {
+  display: flex;
+  gap: 8px;
+
+  &-selection {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    width: 100px;
+    height: 40px;
+    background: $primary-color;
+    border: 1px solid $element-color;
+
+    &--is-added {
+      background-color: #FFF;
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
+    }
+
+    @include onTablet {
+      width: 125px;
+    }
+
+    @include onDesktop {
+      width: 160px;
+    }
+  }
+
+  &__to-add {
+    color: #FFF;
+  }
+
+  &__added {
+    color: #27AE60;
+  }
+
+  &__favorite {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border: 1px solid $element-color;
+    cursor: pointer;
+
+    &:hover {
+       border-color: #B4BDC3; 
+    }
+
+    &-icon {
+      display: block;
+      height: 14px;
+      width: 15px;
+
+      background-image: url(../../images/header/icon--heart-like.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      
+      &--isLiked {
+        background-image: url(../../images/icons/Favourites-Filled.svg);
+      }
+    }
+  }
+}

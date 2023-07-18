@@ -98,6 +98,10 @@
     }
   }
 
+  &__details {
+    margin-bottom: 16px;
+  }
+
   &__description {
     display: flex;
     justify-content: space-between;
@@ -121,79 +125,79 @@
   }
 }
 
-.card-button {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
+// .card-button {
+//   display: flex;
+//   gap: 8px;
+//   margin-top: 16px;
 
-  &-selection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+//   &-selection {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     cursor: pointer;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
+//     font-weight: 700;
+//     font-size: 14px;
+//     line-height: 21px;
 
-    width: 100px;
-    height: 40px;
-    background: $primary-color;
-    border: 1px solid $element-color;
+//     width: 100px;
+//     height: 40px;
+//     background: $primary-color;
+//     border: 1px solid $element-color;
 
-    &--is-added {
-      background-color: #FFF;
-    }
+//     &--is-added {
+//       background-color: #FFF;
+//     }
 
-    &:hover {
-      box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
-    }
+//     &:hover {
+//       box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
+//     }
 
-    @include onTablet {
-      width: 125px;
-    }
+//     @include onTablet {
+//       width: 125px;
+//     }
 
-    @include onDesktop {
-      width: 160px;
-    }
-  }
+//     @include onDesktop {
+//       width: 160px;
+//     }
+//   }
 
-  &__to-add {
-    color: #FFF;
-  }
+//   &__to-add {
+//     color: #FFF;
+//   }
 
-  &__added {
-    color: #27AE60;
-  }
+//   &__added {
+//     color: #27AE60;
+//   }
 
-  &__favorite {
+//   &__favorite {
  
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    width: 40px;
-    height: 40px;
-    border: 1px solid $element-color;
-    cursor: pointer;
+//     width: 40px;
+//     height: 40px;
+//     border: 1px solid $element-color;
+//     cursor: pointer;
 
-    &:hover {
-       border-color: #B4BDC3; 
-    }
+//     &:hover {
+//        border-color: #B4BDC3; 
+//     }
 
-    &-icon {
-      display: block;
-      height: 14px;
-      width: 15px;
+//     &-icon {
+//       display: block;
+//       height: 14px;
+//       width: 15px;
 
-      background-image: url(../../images/header/icon--heart-like.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+//       background-image: url(../../images/header/icon--heart-like.svg);
+//       background-position: center;
+//       background-repeat: no-repeat;
+//       background-size: contain;
       
-      &--isLiked {
-        background-image: url(../../images/icons/Favourites-Filled.svg);
-      }
-    }
-  }
-}
+//       &--isLiked {
+//         background-image: url(../../images/icons/Favourites-Filled.svg);
+//       }
+//     }
+//   }
+// }

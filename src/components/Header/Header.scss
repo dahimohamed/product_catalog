@@ -139,10 +139,11 @@
   }
 
   &__quantity {
-   display: flex;
-   position: absolute;
-   top: 34%;
-   right: 45%;
+    position: absolute;
+    top: 34%;
+    right: 43.1%;
+
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 15px;
